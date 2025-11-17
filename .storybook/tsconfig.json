@@ -6,6 +6,6 @@
   },
   "include": [
     "../components/**/*",
-    "../**/*.stories.ts"
+    "../components/**/*.stories.ts"
   ]
 }
