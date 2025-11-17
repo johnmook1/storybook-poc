@@ -14,11 +14,25 @@ const config: StorybookConfig = {
   ],
   "framework": {
     "name": "@storybook/vue3-vite",
-    "options": {}
+    "options": {
+      docgen: {
+        plugin: 'vue-component-meta',
+        tsconfig: './.storybook/tsconfig.json'
+      }
+    }
   },
   async viteFinal(config) {
-    config.plugins = config.plugins || [];
-    config.plugins.push(vue());
+    // Insert Vue plugin before component-meta plugin so it can process .vue files
+    const componentMetaIndex = config.plugins?.findIndex((p: { name?: string }) => 
+      p?.name === 'storybook:vue-component-meta-plugin'
+    );
+    
+    if (componentMetaIndex > -1) {
+      config.plugins?.splice(componentMetaIndex, 0, vue());
+    } else if (Array.isArray(config.plugins)) {
+      config.plugins.push(vue());
+    }
+    
     return config;
   }
 };
