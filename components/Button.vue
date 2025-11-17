@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { label, disabled, isPill, type = 'button' } = defineProps<{
+const { label, disabled, isPill, type } = defineProps<{
 	/**
 	 * The text to display inside the button
 	 */
