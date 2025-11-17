@@ -23,7 +23,7 @@ const config: StorybookConfig = {
   },
   async viteFinal(config) {
     // Insert Vue plugin before component-meta plugin so it can process .vue files
-    const componentMetaIndex = config.plugins?.findIndex((p: any) => 
+    const componentMetaIndex = config.plugins?.findIndex((p: { name?: string }) => 
       p?.name === 'storybook:vue-component-meta-plugin'
     );
     
