@@ -15,7 +15,7 @@ const { label, disabled, isPill, type = 'button' } = defineProps<{
 	/**
 	 * The HTML button type attribute (button, submit, or reset)
 	 */
-	type: 'button' | 'submit' | 'reset';
+	type?: 'button' | 'submit' | 'reset';
 }>();
 </script>
 
