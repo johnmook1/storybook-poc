@@ -29,6 +29,8 @@ const config: StorybookConfig = {
     
     if (componentMetaIndex > -1) {
       config.plugins?.splice(componentMetaIndex, 0, vue());
+    } else if (Array.isArray(config.plugins)) {
+      config.plugins.push(vue());
     }
     
     return config;
