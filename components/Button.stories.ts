@@ -7,9 +7,10 @@ const meta = {
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/vue/writing-docs/autodocs
   tags: ['autodocs'],
   args: {
-    label: 'Submit',
+    label: 'Click Me',
     isPill: false,
     disabled: false,
+    type: 'button',
   },
 } satisfies Meta<typeof Button>
 
