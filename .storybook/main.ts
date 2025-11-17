@@ -27,7 +27,7 @@ const config: StorybookConfig = {
       p?.name === 'storybook:vue-component-meta-plugin'
     );
     
-    if (componentMetaIndex !== undefined && componentMetaIndex > -1) {
+    if (componentMetaIndex > -1) {
       config.plugins?.splice(componentMetaIndex, 0, vue());
     }
     
