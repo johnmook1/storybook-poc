@@ -1,75 +1,84 @@
-# Nuxt Minimal Starter
+# Storybook + Vue 3 - Vite Proof of Concenpt
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A proof of concept demonstrating Storybook integration with a Nuxt application using standalone Vue 3 Storybook (not the Nuxt Storybook module), Tailwind CSS for styling, and automatic documentation generation from JSDoc comments.
+
+## Overview
+
+This project showcases:
+
+- **Standalone Storybook** - Uses `@storybook/vue3-vite` instead of `@nuxtjs/storybook` for more control and flexibility
+- **Tailwind CSS Integration** - Tailwind styling works in both Nuxt and Storybook environments
+- **Automatic Documentation** - Component props and types are automatically documented in Storybook using `vue-component-meta` docgen
+- **TypeScript Support** - Full TypeScript support with proper type extraction for component props
+
+## Key Features
+
+### Vue Component Meta Docgen
+Components use TypeScript interfaces with JSDoc comments that are automatically extracted and displayed in Storybook:
+
+```vue
+<script setup lang="ts">
+const { label, disabled, isPill, type } = defineProps<{
+	/**
+	 * The text to display inside the button
+	 */
+	label?: string;
+	/**
+	 * Whether the button is disabled
+	 */
+	disabled?: boolean;
+    /**
+	 * Whether the button should have rounded styling
+	 */
+	isPill?: boolean;
+	/**
+	 * The HTML button type attribute (button, submit, or reset)
+	 */
+	type: 'button' | 'submit' | 'reset';
+}>();
+</script>
+```
+
+The JSDoc comments automatically appear in Storybook's Controls panel and documentation without manual `argTypes` configuration.
 
 ## Setup
 
-Make sure to install dependencies:
+Install dependencies:
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## Running the Project
 
-Start the development server on `http://localhost:3000`:
+### Storybook Development
+
+Start Storybook on `http://localhost:6006`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+npm run storybook
 ```
 
-## Production
+## Configuration Details
 
-Build the application for production:
+### Storybook Configuration
 
-```bash
-# npm
-npm run build
+The `.storybook/main.ts` configuration includes:
 
-# pnpm
-pnpm build
+1. **Vue Component Meta Plugin** - Extracts TypeScript types and JSDoc comments
+2. **Custom TypeScript Config** - Uses `.storybook/tsconfig.json` for proper type resolution
+3. **Vite Final Hook** - Ensures Vue plugin is loaded before component-meta plugin
 
-# yarn
-yarn build
+### Tailwind Configuration
 
-# bun
-bun run build
-```
+- PostCSS configured with `tailwindcss` and `autoprefixer`
+- Tailwind imported in `.storybook/preview.ts` for Storybook
+- `@nuxtjs/tailwindcss` module for Nuxt integration
 
-Locally preview production build:
+## Learn More
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- [Storybook Documentation](https://storybook.js.org/docs)
+- [Nuxt Documentation](https://nuxt.com/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [Vue Component Meta](https://github.com/vuejs/language-tools/tree/master/packages/component-meta)
+EOF
