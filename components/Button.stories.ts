@@ -8,7 +8,6 @@ const meta = {
   tags: ['autodocs'],
   args: {
     label: 'Click Me',
-    isPill: false,
     disabled: false,
     type: 'button',
   },
@@ -17,4 +16,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const SubmitButtonStory: Story = {};
+export const PrimaryButtonStory: Story = {}
+
+export const SubmitButtonStory: Story = {
+  args: {
+    type: 'submit',
+    label: 'Submit',
+  },
+};

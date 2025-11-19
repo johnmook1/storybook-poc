@@ -1,3 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;700&family=Work+Sans:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root,
+  .theme-stsh {
+	--color-primary: #e0004d;
+	--color-primary-hover: #8e0031;
+	--border-radius: 4rem; /* 64px */
+	--font-family: 'DM Sans', sans-serif;
+  }
+
+  .theme-fdln {
+	--color-primary: #005695;
+	--color-primary-hover: #003861;
+	--border-radius: 0; /* 0px */
+	--font-family: 'Inter', sans-serif;
+  }
+
+  .theme-gntc {
+	--color-primary: #dd1e0d;
+	--color-primary-hover: #640800;
+	--border-radius: 0.125rem; /* 2px */
+	--font-family: 'Work Sans', sans-serif;
+  }
+}
