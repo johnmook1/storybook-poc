@@ -6,7 +6,20 @@ export default {
     "./.storybook/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: 'var(--color-primary)',
+          hover: 'var(--color-primary-hover)',
+        },
+      },
+      borderRadius: {
+        'theme': 'var(--border-radius)',
+      },
+      fontFamily: {
+        'theme': ['var(--font-family)'],
+      },
+    },
   },
   plugins: [],
 }
